@@ -118,6 +118,7 @@
     "run-sequence": "~0.3.6",
     "style-loader": "^0.13.2",
     "styled-components": "^4.0.3",
+    "svg-tags": "^1.0.0",
     "typeface-lato": "^0.0.75",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.1.2",

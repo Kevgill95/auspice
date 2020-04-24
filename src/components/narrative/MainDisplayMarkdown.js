@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import marked from "marked";
 import styled from 'styled-components';
 import dompurify from "dompurify";
+import svgTags from "svg-tags";
 import { dataFont } from "../../globalStyles";
 
 
@@ -143,9 +144,9 @@ function mdToHtml(md) {
   });
 
   const sanitizer = dompurify.sanitize;
+  const allowedSvgTags = svgTags.filter((n) => n !== "script");
   const sanitizerConfig = {
-    ALLOWED_TAGS: ['div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'em', 'strong', 'del', 'ol', 'ul', 'li', 'a', 'img', '#text', 'pre', 'hr', 'table', 'thead', 'tbody', 'th', 'tr', 'td'],
-    ALLOWED_ATTR: ['href', 'src', 'width', 'height', 'alt'],
+    ALLOWED_TAGS: ['div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'em', 'strong', 'del', 'ol', 'ul', 'li', 'a', 'img', '#text', 'pre', 'hr', 'table', 'thead', 'tbody', 'th', 'tr', 'td', ...allowedSvgTags],
     KEEP_CONTENT: false,
     ALLOW_DATA_ATTR: false
   };
